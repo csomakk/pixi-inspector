@@ -15,3 +15,4 @@ A extension to the Chrome DevTools for inspecting Pixi.js games/applications.
 * Shows property values of the selected node (read-only)
 * Highlight (the bounds of) the selected node
 * The selected node is available in the Console as `$pixi`
+* Edit text and number values
