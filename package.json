@@ -1,4 +1,10 @@
 {
+  "name": "pixi-inspector",
+  "version": "0.0.0",
+  "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "build": "./node_modules/.bin/gulp build"
+  },
   "dependencies": {
     "pixi-spine": "^1.0.3",
     "pixi.js": "^3.0.7",

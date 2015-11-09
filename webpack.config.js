@@ -1,6 +1,6 @@
 module.exports = {
     entry: './src/bootstrap.js',
-    devtool: "source-map",
+    devtool: process.env.NODE_ENV !== 'production' ? 'source-map' : '',
     output: {
     filename: 'pixi-panel.js',
         path: __dirname + '/build'
@@ -29,6 +29,7 @@ module.exports = {
         //don't bundle the 'react' npm package with our bundle.js
         //but get it from a global 'React' variable
         'react': 'React',
+        'react-dom': 'ReactDOM',
         'rx': 'Rx'
     }
 }

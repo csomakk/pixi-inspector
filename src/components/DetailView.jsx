@@ -1,6 +1,8 @@
 require("./DetailView.scss");
-var DetailRow = require("./DetailRow.jsx");
 var React = require("react");
+var DetailValue = require('./DetailValue');
+var proxy = require('../services/proxy');
+var refresh = require('../services/refresh');
 
 var DetailView = React.createClass({
 	render: function () {
@@ -36,10 +38,16 @@ var DetailView = React.createClass({
 		});
 		var fields = [];
 		for (var label in formatted) {
-			var value = formatted[label];
-			fields.push(<DetailRow label={label} value={value} />);
+			var value = formatted[label]; 
+			fields.push(<div key={label}>
+				<span className="detailview__label">{label}</span>
+				<DetailValue className="detailview__value" onChange={this.updateValue.bind(this, label)} value={value}/>
+			</div>);
 		}
 		return <div className="detailview">{fields}</div> 
+	},
+	updateValue: function (property, value) {
+        proxy.eval("$pixi." + property + " = " + value);
 	}
 });
 module.exports = DetailView;
